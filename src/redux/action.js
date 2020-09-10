@@ -21,3 +21,12 @@ export const fetchUsersError = (error) => {
     payload: error,
   };
 };
+
+export const fetchUsers = () => async (dispatch) => {
+  const users = await fetch('https://api.github.com/search/users?q=enriqueMontano')
+    .then((res) => res.json())
+    .catch((error) => dispatch(fetchUsersError(error)));
+
+  dispatch(fetchUsersPending());
+  dispatch(fetchUsersSuccess(users));
+};

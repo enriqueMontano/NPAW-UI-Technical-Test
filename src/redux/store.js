@@ -1,4 +1,5 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 const initialState = {
   pending: false,
@@ -22,4 +23,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export const store = createStore(reducer);
+export const store = createStore(reducer, applyMiddleware(thunk));
