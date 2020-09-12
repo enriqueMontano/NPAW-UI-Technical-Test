@@ -1,23 +1,16 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchUsers } from './redux/action';
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import theme from './theme';
+import { UserTemplate } from './components/templates';
 import './App.css';
 
 function App() {
-  const users = useSelector((state) => state.users);
-  const error = useSelector((state) => state.error);
-  const pending = useSelector((state) => state.pending);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
-
   return (
-    <div className='App'>
-      {console.log(pending, users, error)}
-      hello world
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className='App'>
+        <UserTemplate />
+      </div>
+    </ThemeProvider>
   );
 }
 
