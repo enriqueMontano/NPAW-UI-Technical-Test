@@ -1,1 +1,2 @@
-export { UserList } from './UsersList/UserList.component.jsx';
+export { Card } from './Card/Card.component';
+export { Navbar } from './Navbar/Navbar.component';

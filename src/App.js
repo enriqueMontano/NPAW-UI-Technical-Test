@@ -2,15 +2,18 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme';
-import { UserTemplate } from './components/templates';
+import { Navbar } from './components/organisms';
+import { UserList, UserDetails } from './components/templates';
 import './App.css';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className='App'>
+        <Navbar />
         <Switch>
-          <Route exact path='/' component={UserTemplate} />
+          <Route exact path='/' component={UserList} />
+          <Route exact path='#' component={UserDetails} />
         </Switch>
       </div>
     </ThemeProvider>
