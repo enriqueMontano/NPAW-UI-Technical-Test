@@ -1,50 +1,67 @@
 * {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+}
 
-  body, h1, h2, h3, p {
-    margin: 0;
-    padding: 0;
-  }
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+  background-color: #f6f8fa;
+}
 
-  @font-face {
-    font-family: 'Nitty-Medium';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url('./resources/fonts/NittiGroteskMedium.otf'); /* IE9 Compat Modes */
-    src: local('NittiGroteskMedium.otf'),
-         url('./resources/fonts/NittiGroteskMedium.otf') format('opentype'), /* IE6-IE8 */
-         url('./resources/fonts/NittiGroteskMedium.otf') format('opentype'), /* Super Modern Browsers */
-         url('./resources/fonts/NittiGroteskMedium.otf') format('opentype'), /* Modern Browsers */
-         url('./resources/fonts/NittiGroteskMedium.otf') format('opentype'), /* Safari, Android, iOS */
-         url('./resources/fonts/NittiGroteskMedium.otf') format('opentype'); /* Legacy iOS */
-  }
+@font-face {
+  font-family: 'Nitty-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./resources/fonts/NittiGroteskMedium.otf'); /* IE9 Compat Modes */
+  src: local('NittiGroteskMedium.otf'),
+    url('./resources/fonts/NittiGroteskMedium.otf') format('opentype'),
+    /* IE6-IE8 */ url('./resources/fonts/NittiGroteskMedium.otf')
+      format('opentype'),
+    /* Super Modern Browsers */ url('./resources/fonts/NittiGroteskMedium.otf')
+      format('opentype'),
+    /* Modern Browsers */ url('./resources/fonts/NittiGroteskMedium.otf')
+      format('opentype'),
+    /* Safari, Android, iOS */ url('./resources/fonts/NittiGroteskMedium.otf')
+      format('opentype'); /* Legacy iOS */
+}
 
-  @font-face {
-    font-family: 'Nitty-Light';
-    font-style: normal;
-    font-weight: 200;
-    font-display: swap;
-    src: url('./resources/fonts/NittiGroteskLight.otf'); /* IE9 Compat Modes */
-    src: local('NittiGroteskLight.otf'),
-         url('./resources/fonts/NittiGroteskLight.otf') format('opentype'), /* IE6-IE8 */
-         url('./resources/fonts/NittiGroteskLight.otf') format('opentype'), /* Super Modern Browsers */
-         url('./resources/fonts/NittiGroteskLight.otf') format('opentype'), /* Modern Browsers */
-         url('./resources/fonts/NittiGroteskLight.otf') format('opentype'), /* Safari, Android, iOS */
-         url('./resources/fonts/NittiGroteskLight.otf') format('opentype'); /* Legacy iOS */
-  }
+@font-face {
+  font-family: 'Nitty-Light';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('./resources/fonts/NittiGroteskLight.otf'); /* IE9 Compat Modes */
+  src: local('NittiGroteskLight.otf'),
+    url('./resources/fonts/NittiGroteskLight.otf') format('opentype'),
+    /* IE6-IE8 */ url('./resources/fonts/NittiGroteskLight.otf')
+      format('opentype'),
+    /* Super Modern Browsers */ url('./resources/fonts/NittiGroteskLight.otf')
+      format('opentype'),
+    /* Modern Browsers */ url('./resources/fonts/NittiGroteskLight.otf')
+      format('opentype'),
+    /* Safari, Android, iOS */ url('./resources/fonts/NittiGroteskLight.otf')
+      format('opentype'); /* Legacy iOS */
+}
 
-  @font-face {
-    font-family: 'Nitty-Light-Italic';
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: url('./resources/fonts/NittiGroteskLightItalic.otf'); /* IE9 Compat Modes */
-    src: local('NittiGroteskLightItalic.otf'),
-         url('./resources/fonts/NittiGroteskLightItalic.otf') format('opentype'), /* IE6-IE8 */
-         url('./resources/fonts/NittiGroteskLightItalic.otf') format('opentype'), /* Super Modern Browsers */
-         url('./resources/fonts/NittiGroteskLightItalic.otf') format('opentype'), /* Modern Browsers */
-         url('./resources/fonts/NittiGroteskLightItalic.otf') format('opentype'), /* Safari, Android, iOS */
-         url('./resources/fonts/NittiGroteskLightItalic.otf') format('opentype'); /* Legacy iOS */
-  }
+@font-face {
+  font-family: 'Nitty-Light-Italic';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('./resources/fonts/NittiGroteskLightItalic.otf'); /* IE9 Compat Modes */
+  src: local('NittiGroteskLightItalic.otf'),
+    url('./resources/fonts/NittiGroteskLightItalic.otf') format('opentype'),
+    /* IE6-IE8 */ url('./resources/fonts/NittiGroteskLightItalic.otf')
+      format('opentype'),
+    /* Super Modern Browsers */
+      url('./resources/fonts/NittiGroteskLightItalic.otf') format('opentype'),
+    /* Modern Browsers */ url('./resources/fonts/NittiGroteskLightItalic.otf')
+      format('opentype'),
+    /* Safari, Android, iOS */
+      url('./resources/fonts/NittiGroteskLightItalic.otf') format('opentype'); /* Legacy iOS */
+}
