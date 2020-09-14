@@ -10,7 +10,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className='App'>
-        <Navbar />
+        <Navbar title='Explorer' />
         <Switch>
           <Route exact path='/' component={UserList} />
           <Route exact path='#' component={UserDetails} />
