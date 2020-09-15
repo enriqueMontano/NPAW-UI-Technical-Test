@@ -12,6 +12,23 @@ export const Button = styled.button`
   cursor: pointer;
   outline: none;
   padding: 0;
+
+  /* Button states */
+  &:hover:enabled {
+    background-color: ${({ theme }) => theme.primary.darkGray};
+    color: ${({ theme }) => theme.primary.gray};
+    border: 1px solid ${({ theme }) => theme.primary.gray};
+  }
+
+  &:active:enabled {
+    background-color: ${({ theme }) => theme.primary.gray};
+    color: ${({ theme }) => theme.primary.darkGray};
+    border: 1px solid ${({ theme }) => theme.primary.gray};
+  }
+
+  &:disabled {
+    opacity: 0.3;
+  }
 `;
 
 export const SearchButton = styled(Button)`

@@ -6,14 +6,17 @@ export const SearchBarWrapper = styled.div`
   align-items: center;
   width: 246px;
   background-color: ${({ theme }) => theme.primary.darkGray};
+  min-width: 40%;
 
   .label-container {
     margin-left: 12px;
+    padding: 0px 8px;
     background-color: ${({ theme }) => theme.primary.gray};
     border-radius: 2px;
 
     display: flex;
     align-items: center;
+    width: 100%;
   }
 
   .button-container {
