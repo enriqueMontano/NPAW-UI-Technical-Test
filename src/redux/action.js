@@ -22,10 +22,8 @@ const fetchUsersError = (error) => {
   };
 };
 
-export const fetchUsers = () => async (dispatch) => {
-  const users = await fetch(
-    `https://api.github.com/search/users?q=enrique&per_page=20`
-  )
+export const fetchUsers = (input) => async (dispatch) => {
+  const users = await fetch(`https://api.github.com/search/users?q=${input}&per_page=20`)
     .then((res) => res.json())
     .catch((error) => dispatch(fetchUsersError(error)));
 
