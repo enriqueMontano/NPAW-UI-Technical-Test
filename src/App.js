@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchUsers } from './redux/action';
+import { fetchUsers, fetchUserDetails } from './actions';
 import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme';
@@ -10,14 +10,17 @@ import { Navbar } from './components/organisms';
 
 function App() {
   const [input, setInput] = useState('enrique');
+  const [user, setUser] = useState(null);
 
-  const users = useSelector((state) => state.users);
-  const error = useSelector((state) => state.error);
-  const pending = useSelector((state) => state.pending);
-
+  const data = useSelector((state) => state.data);
+  const userData = useSelector((state) => state.data);
   const dispatch = useDispatch();
 
   const handleInput = (value) => setInput(value);
+  const handleSelectUser = (name) => {
+    setUser(name);
+    dispatch(fetchUserDetails(user));
+  };
 
   useEffect(() => {
     dispatch(fetchUsers(input));
@@ -31,11 +34,13 @@ function App() {
           <Route
             exact
             path='/'
-            component={() => (
-              <UserList error={error} pending={pending} users={users} />
-            )}
+            component={() => <UserList data={data} action={handleSelectUser} />}
           />
-          <Route exact path='#' component={UserDetails} />
+          <Route
+            exact
+            path='/detail/:name'
+            component={() => <UserDetails data={userData} />}
+          />
         </Switch>
       </div>
     </ThemeProvider>
