@@ -1,45 +1,50 @@
 import React, { useEffect, useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsers, fetchUserDetails } from './actions';
-import { Switch, Route } from 'react-router-dom';
+import { Navbar } from './components/organisms';
+import { UserList, UserDetails } from './components/templates';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme';
-import { UserList, UserDetails } from './components/templates';
 import './App.css';
-import { Navbar } from './components/organisms';
 
 function App() {
   const [input, setInput] = useState('enrique');
   const [user, setUser] = useState(null);
 
-  const data = useSelector((state) => state.data);
-  const userData = useSelector((state) => state.data);
+  const usersList = useSelector((state) => state.usersList);
+  const userDetails = useSelector((state) => state.userDetails);
   const dispatch = useDispatch();
 
-  const handleInput = (value) => setInput(value);
-  const handleSelectUser = (name) => {
+  const handleInput = (value) => {
+    dispatch(fetchUsers(input));
+    setInput(value);
+  };
+
+  const handleUser = (name) => {
     setUser(name);
+    console.log(input);
     dispatch(fetchUserDetails(user));
   };
 
   useEffect(() => {
-    dispatch(fetchUsers(input));
-  }, [dispatch, input]);
+    dispatch(fetchUsers(input)); // eslint-disable-next-line
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
       <div className='App'>
-        <Navbar title='Explorer' action={handleInput} />
+        <Navbar action={handleInput} />
         <Switch>
           <Route
             exact
             path='/'
-            component={() => <UserList data={data} action={handleSelectUser} />}
+            component={() => <UserList data={usersList} action={handleUser} />}
           />
           <Route
             exact
             path='/detail/:name'
-            component={() => <UserDetails data={userData} />}
+            component={() => <UserDetails data={userDetails} />}
           />
         </Switch>
       </div>

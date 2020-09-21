@@ -8,12 +8,11 @@ import {
 } from '../actions/types';
 
 export default function (state = {}, action) {
-  console.log('action type => ', action.type);
   switch (action.type) {
     case SET_USERS:
-      return { data: action.payload };
+      return { usersList: action.payload };
     case SET_USER_DETAILS:
-      return { data: action.payload };
+      return { userDetails: action.payload };
     case API_START:
       if (
         action.payload === FETCH_USERS ||
@@ -21,6 +20,7 @@ export default function (state = {}, action) {
       ) {
         return {
           ...state,
+          payload: action.payload,
           isLoadingData: true,
         };
       }

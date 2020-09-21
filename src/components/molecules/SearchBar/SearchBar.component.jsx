@@ -1,10 +1,13 @@
 import React, { useRef } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import { SearchBarWrapper } from './SearchBar.styled';
 import { ReactComponent as SearchIcon } from '../../../resources/svg/search_icon.svg';
-import { Input, StyledLink } from '../../atoms';
+import { Input, SearchButton } from '../../atoms';
 
 export const SearchBar = ({ action }) => {
   const inputRef = useRef(null);
+  let history = useHistory();
 
   return (
     <SearchBarWrapper>
@@ -13,26 +16,16 @@ export const SearchBar = ({ action }) => {
         <Input ref={inputRef} placeHolder='Enter a user name' name='search' />
       </div>
       <div className='button-container'>
-        {/* <SearchButton
+        <SearchButton
           onClick={() => {
+            history.push('/');
             if (inputRef.current) {
               action(inputRef.current.value);
-              history.goBack();
             }
           }}
         >
           Search
-        </SearchButton> */}
-        <StyledLink
-          to={`/`}
-          onClick={() => {
-            if (inputRef.current) {
-              action(inputRef.current.value);
-            }
-          }}
-        >
-          SEARCH
-        </StyledLink>
+        </SearchButton>
       </div>
     </SearchBarWrapper>
   );
