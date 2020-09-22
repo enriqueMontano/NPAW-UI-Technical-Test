@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsers, fetchUserDetails } from './actions';
 import { Navbar } from './components/organisms';
+import { BarChart } from './components/atoms';
 import { UserList, UserDetails } from './components/templates';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme';
@@ -35,6 +36,22 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className='App'>
         <Navbar action={handleInput} />
+        <BarChart
+          indexBy='login'
+          keys={['followers']}
+          data={[
+            { login: 'DayanRO', followers: 100 },
+            { login: 'enriqueMontano', followers: 50 },
+            { login: 'Yaiyai', followers: 100 },
+            { login: 'Jorge', followers: 80 },
+            { login: 'Madalin', followers: 100 },
+            { login: 'FranOrange', followers: 50 },
+            { login: 'Maria', followers: 100 },
+            { login: 'yoqueSe', followers: 80 },
+            { login: 'Bichote', followers: 100 },
+            { login: 'ola', followers: 50 },
+          ]}
+        />
         <Switch>
           <Route
             exact
