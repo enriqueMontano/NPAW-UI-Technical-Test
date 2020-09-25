@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsers, fetchUserDetails } from './actions';
 import { Navbar } from './components/organisms';
-import { BarChart } from './components/atoms';
 import { UserList, UserDetails } from './components/templates';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme';
@@ -12,6 +11,7 @@ import './App.css';
 function App() {
   const [input, setInput] = useState('enrique');
   const [user, setUser] = useState(null);
+  const [chartData, setChartData] = useState([]);
 
   const usersList = useSelector((state) => state.usersList);
   const userDetails = useSelector((state) => state.userDetails);
@@ -24,39 +24,62 @@ function App() {
 
   const handleUser = (name) => {
     setUser(name);
-    console.log(input);
     dispatch(fetchUserDetails(user));
+  };
+
+  const functionOrderChartData = () => {
+    if (chartData.length === 19) {
+      let orderChartData = [...chartData];
+      orderChartData.sort((a, b) => b.followers - a.followers);
+      let spliceArray = [...orderChartData];
+      spliceArray.splice(10, 9);
+
+      setChartData(spliceArray);
+    }
   };
 
   useEffect(() => {
     dispatch(fetchUsers(input)); // eslint-disable-next-line
-  }, []);
+  }, [input]);
+
+  useEffect(() => {
+    if (usersList) {
+      setChartData([]);
+
+      usersList.items.map((user) => dispatch(fetchUserDetails(user.login)));
+    }
+    // eslint-disable-next-line
+  }, [usersList]);
+
+  useEffect(() => {
+    if (userDetails) {
+      setChartData(
+        chartData.concat({
+          login: userDetails.login,
+          followers: userDetails.followers,
+        })
+      );
+
+      functionOrderChartData();
+    }
+    // eslint-disable-next-line
+  }, [userDetails]);
 
   return (
     <ThemeProvider theme={theme}>
       <div className='App'>
         <Navbar action={handleInput} />
-        <BarChart
-          indexBy='login'
-          keys={['followers']}
-          data={[
-            { login: 'DayanRO', followers: 100 },
-            { login: 'enriqueMontano', followers: 50 },
-            { login: 'Yaiyai', followers: 100 },
-            { login: 'Jorge', followers: 80 },
-            { login: 'Madalin', followers: 100 },
-            { login: 'FranOrange', followers: 50 },
-            { login: 'Maria', followers: 100 },
-            { login: 'yoqueSe', followers: 80 },
-            { login: 'Bichote', followers: 100 },
-            { login: 'ola', followers: 50 },
-          ]}
-        />
         <Switch>
           <Route
             exact
             path='/'
-            component={() => <UserList data={usersList} action={handleUser} />}
+            component={() => (
+              <UserList
+                data={usersList}
+                action={handleUser}
+                chartData={chartData}
+              />
+            )}
           />
           <Route
             exact

@@ -10,9 +10,9 @@ import {
 export default function (state = {}, action) {
   switch (action.type) {
     case SET_USERS:
-      return { usersList: action.payload };
+      return { ...state, usersList: action.payload };
     case SET_USER_DETAILS:
-      return { userDetails: action.payload };
+      return { ...state, userDetails: action.payload };
     case API_START:
       if (
         action.payload === FETCH_USERS ||
