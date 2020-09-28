@@ -20,6 +20,11 @@ export const CardListWrapper = styled(Card)`
     flex-direction: column;
     align-items: center;
   }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const CardDetailsWrapper = styled(Card)`

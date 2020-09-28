@@ -14,9 +14,11 @@ export const CardList = ({ action, username, avatar, id }) => (
       <Subtitle>{username}</Subtitle>
       <SubtitleLight>{id}</SubtitleLight>
     </div>
-    <StyledLink to={`/detail/${username}`} onClick={() => action(username)}>
-      View More
-    </StyledLink>
+    <div className='button-container'>
+      <StyledLink to={`/detail/${username}`} onClick={() => action(username)}>
+        View More
+      </StyledLink>
+    </div>
   </CardListWrapper>
 );
 
