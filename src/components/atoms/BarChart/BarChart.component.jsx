@@ -25,7 +25,6 @@ export const BarChart = ({ data, keys, indexBy, width, height }) => (
 
         if (e.id === 'followers') return '#25D99B';
 
-
         return null;
       }}
       borderRadius={1}

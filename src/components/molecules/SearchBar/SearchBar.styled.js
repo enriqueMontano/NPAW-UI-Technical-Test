@@ -22,4 +22,12 @@ export const SearchBarWrapper = styled.div`
   .button-container {
     margin-left: 10px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    min-width: 100%;
+
+    .label-container {
+      margin: 2% 0px;
+    }
+  }
 `;

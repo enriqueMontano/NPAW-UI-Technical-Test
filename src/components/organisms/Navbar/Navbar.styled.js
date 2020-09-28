@@ -15,4 +15,13 @@ export const NavbarWrapper = styled.div`
   .logo-container {
     display: flex;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .logo-container {
+      margin: 2% 0px;
+    }
+  }
 `;

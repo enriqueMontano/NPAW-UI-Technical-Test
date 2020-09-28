@@ -44,4 +44,8 @@ export const CardDetailsWrapper = styled(Card)`
     display: flex;
     justify-content: flex-end;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin: 5%;
+  }
 `;
