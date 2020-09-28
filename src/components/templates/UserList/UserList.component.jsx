@@ -13,8 +13,9 @@ export const UserList = ({ data, action, chartData }) => {
             <Card
               key={user.id}
               username={user.login}
+              id={user.id}
+              avatar={user.avatar_url}
               action={action}
-              followers={user.followers_url}
             />
           ))}
       </div>

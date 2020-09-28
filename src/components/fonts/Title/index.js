@@ -20,7 +20,7 @@ const Subtitle = styled.h2`
 const SubtitleLight = styled.h3`
   font-family: 'Nitty-Light';
   color: ${({ theme, color }) => color || theme.primary.blue};
-  font-size: ${({ size }) => size || '20px'};
+  font-size: ${({ size }) => size || '18px'};
   letter-spacing: 0.002em;
   line-height: 24px;
   font-weight: 300;
