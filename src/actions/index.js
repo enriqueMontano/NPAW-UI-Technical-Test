@@ -12,6 +12,7 @@ export function fetchUsers(inputValue) {
     onSuccess: setUsers,
     onFailure: () => console.log('Error occured loading users'),
     label: FETCH_USERS,
+    input: inputValue,
   });
 }
 
@@ -45,6 +46,7 @@ function apiAction({
   onSuccess = () => {},
   onFailure = () => {},
   label = '',
+  input,
 }) {
   return {
     type: API,
@@ -55,6 +57,7 @@ function apiAction({
       onSuccess,
       onFailure,
       label,
+      input,
     },
   };
 }
