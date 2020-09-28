@@ -1,7 +1,7 @@
 import React from 'react';
 import { UserListWrapper } from './UserList.styled';
 import { BarChart } from '../../atoms';
-import { Card } from '../../organisms';
+import { CardList } from '../../organisms';
 
 export const UserList = ({ data, action, chartData }) => {
   return (
@@ -10,7 +10,7 @@ export const UserList = ({ data, action, chartData }) => {
       <div className='card-container'>
         {data &&
           data.items.map((user) => (
-            <Card
+            <CardList
               key={user.id}
               username={user.login}
               id={user.id}

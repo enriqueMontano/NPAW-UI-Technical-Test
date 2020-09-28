@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-
 import { SearchBarWrapper } from './SearchBar.styled';
 import { ReactComponent as SearchIcon } from '../../../resources/svg/search_icon.svg';
 import { Input, SearchButton } from '../../atoms';

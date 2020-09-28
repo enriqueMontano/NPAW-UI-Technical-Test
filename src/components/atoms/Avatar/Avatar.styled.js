@@ -5,8 +5,8 @@ export const AvatarWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: 80px;
-  height: 80px;
+  width: ${({ width }) => width || '80px'};
+  height: ${({ height }) => height || '80px'};
 
   border-radius: 50%;
 
