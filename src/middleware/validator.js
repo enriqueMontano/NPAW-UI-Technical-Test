@@ -1,7 +1,6 @@
 import { FETCH_USERS } from '../actions/types';
 
 const validator = (store) => (next) => (action) => {
-  console.log(action.payload);
   if (
     action.payload.label === FETCH_USERS &&
     action.payload.input.toLowerCase().indexOf('gcpglobal') !== -1

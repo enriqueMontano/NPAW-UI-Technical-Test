@@ -2,7 +2,7 @@ import React from 'react';
 import { NavbarWrapper } from './Navbar.styled';
 import { ReactComponent as LogoIcon } from '../../../resources/svg/logo_icon.svg';
 import { Title } from '../../fonts';
-import { SearchBar } from '../../molecules/SearchBar/SearchBar.component';
+import { SearchBar } from '../../molecules';
 
 export const Navbar = ({ action }) => (
   <NavbarWrapper>
