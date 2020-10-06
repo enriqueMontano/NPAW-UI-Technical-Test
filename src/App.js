@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsers, fetchUserDetails } from './actions';
+import { ErrorBoundary } from './components/molecules';
 import { Navbar } from './components/organisms';
 import { UserList, UserDetails } from './components/templates';
 import { ThemeProvider } from 'styled-components';
@@ -67,27 +68,29 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className='App'>
-        <Navbar action={handleInput} />
-        <Switch>
-          <Route
-            exact
-            path='/'
-            component={() => (
-              <UserList
-                data={usersList}
-                action={handleUser}
-                chartData={chartData}
-              />
-            )}
-          />
-          <Route
-            exact
-            path='/detail/:name'
-            component={() => <UserDetails data={userDetails} />}
-          />
-        </Switch>
-      </div>
+      <ErrorBoundary>
+        <div className='App'>
+          <Navbar action={handleInput} />
+          <Switch>
+            <Route
+              exact
+              path='/'
+              component={() => (
+                <UserList
+                  data={usersList}
+                  action={handleUser}
+                  chartData={chartData}
+                />
+              )}
+            />
+            <Route
+              exact
+              path='/detail/:name'
+              component={() => <UserDetails data={userDetails} />}
+            />
+          </Switch>
+        </div>
+      </ErrorBoundary>
     </ThemeProvider>
   );
 }
