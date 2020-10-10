@@ -10,7 +10,7 @@ export function fetchUsers(inputValue) {
   return apiAction({
     url: `https://api.github.com/search/users?q=${inputValue}&per_page=20`,
     onSuccess: setUsers,
-    onFailure: () => console.log('Error occured loading users'),
+    onFailure: () => console.log('API rate limit exceeded'),
     label: FETCH_USERS,
     input: inputValue,
   });
@@ -20,7 +20,7 @@ export function fetchUserDetails(username) {
   return apiAction({
     url: `https://api.github.com/users/${username}`,
     onSuccess: setUserDetails,
-    onFailure: () => console.log('Error occured loading user details'),
+    onFailure: () => console.log('API rate limit exceeded'),
     label: FETCH_USER_DETAILS,
   });
 }
