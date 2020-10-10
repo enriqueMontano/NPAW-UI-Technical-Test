@@ -46,7 +46,7 @@ function apiAction({
   onSuccess = () => {},
   onFailure = () => {},
   label = '',
-  input,
+  input = '',
 }) {
   return {
     type: API,

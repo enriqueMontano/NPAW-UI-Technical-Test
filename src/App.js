@@ -21,12 +21,10 @@ function App() {
 
   const handleInput = (value) => {
     setInput(value);
-    dispatch(fetchUsers(input));
   };
 
   const handleUser = (name) => {
     setUser(name);
-    dispatch(fetchUserDetails(user));
   };
 
   const functionOrderChartData = () => {
@@ -43,6 +41,10 @@ function App() {
   useEffect(() => {
     dispatch(fetchUsers(input)); // eslint-disable-next-line
   }, [input]);
+
+  useEffect(() => {
+    dispatch(fetchUserDetails(user)); // eslint-disable-next-line
+  }, [user]);
 
   useEffect(() => {
     if (usersList) {
