@@ -25,6 +25,7 @@ export const SearchBar = ({ action, error }) => {
             history.push('/');
             if (inputRef.current) {
               action(inputRef.current.value);
+              inputRef.current.value = '';
             }
           }}
         >
