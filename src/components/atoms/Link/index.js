@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const StyledLink = styled(Link)`
+export const UnstyledLink = styled(Link)`
+  text-decoration: none;
+  display: inline-flex;
+`;
+
+export const StyledLink = styled(UnstyledLink)`
   font-family: 'Nitty-Medium';
   border-radius: 2px;
-  text-decoration: none;
 
   background-color: ${({ theme }) => theme.primary.darkGray};
   color: ${({ theme }) => theme.primary.lightGray};
@@ -13,7 +17,6 @@ export const StyledLink = styled(Link)`
   line-height: 18px;
   font-weight: 500;
   min-width: ${({ width }) => width || '97px'};
-  display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: 250ms ease-in-out;
