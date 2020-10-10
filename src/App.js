@@ -16,11 +16,12 @@ function App() {
 
   const usersList = useSelector((state) => state.usersList);
   const userDetails = useSelector((state) => state.userDetails);
+  const error = useSelector((state) => state.error);
   const dispatch = useDispatch();
 
   const handleInput = (value) => {
-    dispatch(fetchUsers(input));
     setInput(value);
+    dispatch(fetchUsers(input));
   };
 
   const handleUser = (name) => {
@@ -70,7 +71,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <ErrorBoundary>
         <div className='App'>
-          <Navbar action={handleInput} />
+          <Navbar action={handleInput} error={error} />
           <Switch>
             <Route
               exact

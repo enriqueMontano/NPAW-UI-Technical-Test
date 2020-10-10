@@ -1,6 +1,7 @@
 import {
   SET_USERS,
   SET_USER_DETAILS,
+  SET_INPUT_ERROR,
   API_START,
   API_END,
   FETCH_USERS,
@@ -13,6 +14,8 @@ export default function (state = {}, action) {
       return { ...state, usersList: action.payload };
     case SET_USER_DETAILS:
       return { ...state, userDetails: action.payload };
+    case SET_INPUT_ERROR:
+      return { ...state, error: true };
     case API_START:
       if (
         action.payload === FETCH_USERS ||
@@ -22,6 +25,7 @@ export default function (state = {}, action) {
           ...state,
           payload: action.payload,
           isLoadingData: true,
+          error: false,
         };
       }
       break;

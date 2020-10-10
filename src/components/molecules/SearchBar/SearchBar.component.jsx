@@ -4,7 +4,7 @@ import { SearchBarWrapper } from './SearchBar.styled';
 import { ReactComponent as SearchIcon } from '../../../resources/svg/search_icon.svg';
 import { Input, SearchButton } from '../../atoms';
 
-export const SearchBar = ({ action }) => {
+export const SearchBar = ({ action, error }) => {
   const inputRef = useRef(null);
   let history = useHistory();
 
@@ -12,7 +12,12 @@ export const SearchBar = ({ action }) => {
     <SearchBarWrapper>
       <div className='label-container'>
         <SearchIcon />
-        <Input ref={inputRef} placeHolder='Enter a user name' name='search' />
+        <Input
+          ref={inputRef}
+          placeHolder='Enter a user name'
+          name='search'
+          error={error}
+        />
       </div>
       <div className='button-container'>
         <SearchButton

@@ -10,13 +10,16 @@ export const InputWrapper = styled.div`
     display: block;
     width: ${({ width }) => width || '100%'};
     border: none;
+    border-bottom: ${({ theme, error }) =>
+      error ? `2px solid ${theme.secondary.red}` : `none`};
     border-radius: 2px;
 
     font-weight: 300;
     font-size: 16px;
     line-height: 22px;
     font-family: 'Nitty-Light';
-    color: ${({ theme }) => theme.primary.darkGray};
+    color: ${({ theme, error }) =>
+      error ? theme.secondary.red : theme.primary.darkGray};
     background: ${({ theme }) => theme.primary.gray};
 
     &::placeholder {

@@ -3,6 +3,8 @@ export const SET_USERS = 'SET_USERS';
 export const FETCH_USER_DETAILS = 'FETCH_USER_DETAILS';
 export const SET_USER_DETAILS = 'SET_USER_DETAILS';
 
+export const SET_INPUT_ERROR = 'SET_ERROR_INPUT';
+
 export const API = 'API';
 export const API_START = 'API_START';
 export const API_END = 'API_END';
