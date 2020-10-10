@@ -41,7 +41,7 @@ $ curl -i https://api.github.com/users/octocat
 > X-RateLimit-Reset: 1372700873
 ```
 
-For more information about this, you can consult the [official documentation](https://docs.github.com/en/free-pro-team@latest/rest/reference/search#rate-limit).
+For more information about this, you can consult the [official documentation](https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting).
 
 ## Technologies
 
