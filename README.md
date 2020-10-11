@@ -1,6 +1,6 @@
 # GitHub-Explorer
 
-Application that helps to get a list of users and display their profile information, exploiting the GitHub public API Rest.
+[Application](https://gh-explorer.herokuapp.com/) (Heroku link) that helps to get a list of users and display their profile information, exploiting the GitHub public API Rest.
 
 ## How to install
 
@@ -50,3 +50,12 @@ Project is created with:
 - React: v16.13.1
 - Redux: v4.0.5
 - Styled-components: v5.2.0
+
+
+#### Considerations
+
+For handle errors was implemented with Error boundaries to catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+
+Error overlay cannot be disabled in development mode and catching an error does not prevent it.
+
+All you have to do to test my boundary is press escape once it pops out and you can go home page again if you clicking the button.
