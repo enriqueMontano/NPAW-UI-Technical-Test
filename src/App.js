@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsers, fetchUserDetails } from './actions';
@@ -69,31 +69,47 @@ function App() {
     // eslint-disable-next-line
   }, [userDetails]);
 
+  const useAsyncError = () => {
+    const [_, setError] = useState();
+
+    return useCallback(
+      (e) => {
+        setError(() => {
+          throw e;
+        });
+      },
+      [setError]
+    );
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <ErrorBoundary>
-        <div className='App'>
-          <Navbar action={handleInput} error={error} />
-          <Switch>
-            <Route
-              exact
-              path='/'
-              component={() => (
-                <UserList
-                  data={usersList}
-                  action={handleUser}
-                  chartData={chartData}
-                />
-              )}
-            />
-            <Route
-              exact
-              path='/detail/:name'
-              component={() => <UserDetails data={userDetails} />}
-            />
-          </Switch>
-        </div>
-      </ErrorBoundary>
+      <div className='App'>
+        <Navbar action={handleInput} error={error} />
+        <Switch>
+          <Route
+            exact
+            path='/'
+            render={() => (
+              <UserList
+                data={usersList}
+                action={handleUser}
+                chartData={chartData}
+                handleError={useAsyncError}
+              />
+            )}
+          />
+          <Route
+            exact
+            path='/detail/:name'
+            render={() => (
+              <ErrorBoundary>
+                <UserDetails data={userDetails} handleError={useAsyncError} />
+              </ErrorBoundary>
+            )}
+          />
+        </Switch>
+      </div>
     </ThemeProvider>
   );
 }

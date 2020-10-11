@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { UserListWrapper } from './UserList.styled';
 import { BarChart } from '../../atoms';
 import { CardList } from '../../organisms';
